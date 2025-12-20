@@ -11,9 +11,6 @@ export class ChatEntity {
   @Column({ nullable: false })
   userId: number;
 
-  @Column({ nullable: false })
-  friendId: number;
-
   @Column({ type: 'longtext', nullable: false })
   content: string; 
 
