@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { SocialNetworkModule } from './social_network/social_network.module';
 import { ChatModule } from './chat/chat.module';
+import { CommentModule } from './comments/comment.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { ChatModule } from './chat/chat.module';
       synchronize: true, 
     }),
     SocialNetworkModule,
-    ChatModule
+    ChatModule,
+    CommentModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -21,7 +21,6 @@ import { AuthService } from 'src/auth/auth.service';
 import { ChatEntity } from './chat.entity';
 import { ChatGroupEntity } from './group.entity';
 import { ChatGroupMemberEntity } from './group_member.entity';
-import { equal } from 'assert';
 
 @Injectable()
 export class ChatService {
