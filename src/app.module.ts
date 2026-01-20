@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SocialNetworkModule } from './social_network/social_network.module';
 import { ChatModule } from './chat/chat.module';
 import { CommentModule } from './comments/comment.module';
+import { NotificationModule } from './notification/notification.module';
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import { CommentModule } from './comments/comment.module';
     }),
     SocialNetworkModule,
     ChatModule,
-    CommentModule
+    CommentModule,
+    NotificationModule
   ],
   controllers: [AppController],
   providers: [AppService],
