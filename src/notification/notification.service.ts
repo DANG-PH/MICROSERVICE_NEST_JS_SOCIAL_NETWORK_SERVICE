@@ -21,7 +21,7 @@ export class NotificationService {
 
   async createNotification(req: CreateNotificationRequest): Promise<CreateNotificationResponse> {
     const notification = req.notification;
-    if (!notification) throw new RpcException({status: status.INVALID_ARGUMENT, message: "Thiếu trường dữ liệu"})
+    if (!notification) throw new RpcException({code: status.INVALID_ARGUMENT, message: "Thiếu trường dữ liệu"})
     const notificationSave = this.repo.create({
         userId: notification.userId,
         title: notification.title,

@@ -42,7 +42,7 @@ export class ChatService {
 
     if (!msg || !msg.roomId || !msg.userId || !msg.content) {
       throw new RpcException({
-        status: status.INVALID_ARGUMENT,
+        code: status.INVALID_ARGUMENT,
         message: 'Thiếu thông tin message',
       });
     }
@@ -64,7 +64,7 @@ export class ChatService {
 
     if (!userId || !roomId) {
       throw new RpcException({
-        status: status.INVALID_ARGUMENT,
+        code: status.INVALID_ARGUMENT,
         message: 'Thiếu userId hoặc roomId',
       });
     }
@@ -80,7 +80,7 @@ export class ChatService {
     if (roomId.startsWith('dm')) {
       const [, a, b] = roomId.split(':');
       const members = [Number(a), Number(b)];
-      if (!members.includes(userId)) throw new RpcException({status: status.PERMISSION_DENIED, message: "Bạn có ý định nghe lén tin nhắn, vui lòng dừng lại!"});
+      if (!members.includes(userId)) throw new RpcException({code: status.PERMISSION_DENIED, message: "Bạn có ý định nghe lén tin nhắn, vui lòng dừng lại!"});
 
       filtered = messages; 
     }
@@ -91,7 +91,7 @@ export class ChatService {
         groupId: groupId,
         userId: userId
       })
-      if (!success) throw new RpcException({status: status.PERMISSION_DENIED, message: "Bạn có ý định nghe lén tin nhắn, vui lòng dừng lại!"});
+      if (!success) throw new RpcException({code: status.PERMISSION_DENIED, message: "Bạn có ý định nghe lén tin nhắn, vui lòng dừng lại!"});
 
       filtered = messages; 
     }
@@ -131,7 +131,7 @@ export class ChatService {
   async createGroup(req: CreateGroupRequest): Promise<CreateGroupResponse> {
     if (!req || !req.name || !req.avatarUrl || !req.ownerId || !req.maxMember ) {
       throw new RpcException({
-        status: status.INVALID_ARGUMENT,
+        code: status.INVALID_ARGUMENT,
         message: 'Thiếu thông tin group',
       });
     }
@@ -166,7 +166,7 @@ export class ChatService {
 
     if (!userId || !groupId) {
       throw new RpcException({
-        status: status.INVALID_ARGUMENT,
+        code: status.INVALID_ARGUMENT,
         message: 'Thiếu userId hoặc groupId',
       });
     }
@@ -178,7 +178,7 @@ export class ChatService {
 
     if (!group) {
       throw new RpcException({
-        status: status.NOT_FOUND,
+        code: status.NOT_FOUND,
         message: 'Group không tồn tại',
       });
     }
