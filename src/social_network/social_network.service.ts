@@ -126,7 +126,7 @@ export class SocialNetworkService {
     // Lấy danh sách userId của người gửi request
     const userIds = rows.map(r => r.userId);
 
-    // Gọi authService
+    // Gọi authService lấy data
     const realnameAvatarResponse = await this.authService.handleGetRealnameAvatar({
       userIds,
     });
