@@ -1,5 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, Index } from 'typeorm';
 
+// Sort luôn
+@Index(['roomId', 'createdAt'])
 @Entity('chat') 
 export class ChatEntity {
   @PrimaryGeneratedColumn()

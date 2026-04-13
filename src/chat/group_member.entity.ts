@@ -7,10 +7,13 @@ export class ChatGroupMemberEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Index()
+  // KHÔNG cần @Index() riêng vì Unique(['groupId','userId'])
+  // đã cover query WHERE groupId = ? qua leftmost prefix
   @Column()
   groupId: number;
 
+  // Cần index riêng vì GetAllGroup query WHERE userId = ?
+  // Unique index (groupId, userId) không dùng được khi chỉ filter userId
   @Index()
   @Column()
   userId: number;

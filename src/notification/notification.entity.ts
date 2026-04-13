@@ -1,10 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, Index } from 'typeorm';
 
 @Entity('notification') 
 export class NotificationEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  // GetNotificationByUser query WHERE userId = ?
+  @Index()
   @Column({ nullable: false })
   userId: number;
 

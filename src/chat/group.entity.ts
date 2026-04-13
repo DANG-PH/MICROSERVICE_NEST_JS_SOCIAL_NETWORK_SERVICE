@@ -15,7 +15,6 @@ export class ChatGroupEntity {
   @Column({ nullable: true, default: '' })
   description: string;
 
-  @Index()
   @Column()
   ownerId: number;
 
